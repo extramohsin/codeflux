@@ -1,70 +1,213 @@
-
-import { useState } from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
+import { useState } from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    school: '',
-    phone: '',
-    message: '',
-    workshopType: ''
+    name: "",
+    email: "",
+    school: "",
+    phone: "",
+    message: "",
+    workshopType: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message Sent! 🎉",
-      description: "We'll get back to you within 24 hours to discuss your workshop needs.",
-    });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      school: '',
-      phone: '',
-      message: '',
-      workshopType: ''
-    });
+    setIsSubmitting(true);
+
+    try {
+      // Method 1: Using EmailJS (Recommended - works client-side)
+      // Uncomment and configure EmailJS if you want to use it
+      /*
+      const emailjs = await import('emailjs-com');
+      await emailjs.send(
+        'YOUR_SERVICE_ID', 
+        'YOUR_TEMPLATE_ID',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          school: formData.school,
+          phone: formData.phone,
+          workshop_type: formData.workshopType,
+          message: formData.message,
+          to_email: 'codefluxhelp@gmail.com'
+        },
+        'YOUR_PUBLIC_KEY'
+      );
+      */
+
+      // Method 2: Using mailto (Opens user's email client)
+      const subject = `Workshop Request from ${formData.name} - ${formData.school}`;
+      const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+School/Institution: ${formData.school}
+Phone: ${formData.phone}
+Workshop Type: ${formData.workshopType || "Not specified"}
+
+Message:
+${formData.message}
+
+---
+This message was sent from CodeFlux contact form.
+      `.trim();
+
+      const mailtoLink = `mailto:codefluxhelp@gmail.com?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+
+      // Method 3: Using your own backend API
+      // Uncomment this if you have a backend endpoint
+      /*
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          to: 'codefluxhelp@gmail.com'
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+      */
+
+      // For now, using mailto method
+      window.location.href = mailtoLink;
+
+      toast({
+        title: "Email Client Opened! 📧",
+        description:
+          "Your default email client should open with the pre-filled message. Please send it from there.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        school: "",
+        phone: "",
+        message: "",
+        workshopType: "",
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+
+      // Fallback to WhatsApp if email fails
+      const whatsappMessage = `Hi CodeFlux! Workshop Request Details:
+      
+Name: ${formData.name}
+Email: ${formData.email}
+School: ${formData.school}
+Phone: ${formData.phone}
+Workshop Type: ${formData.workshopType || "Not specified"}
+
+Message: ${formData.message}`;
+
+      const whatsappLink = `https://wa.me/919325808063?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
+
+      toast({
+        title: "Redirecting to WhatsApp 💬",
+        description:
+          "We'll send your details via WhatsApp instead for faster communication.",
+      });
+
+      setTimeout(() => {
+        window.open(whatsappLink, "_blank");
+      }, 1000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   const openWhatsApp = () => {
-    const message = encodeURIComponent("Hi CodeFlux! I'm interested in organizing a workshop at our institution. Can we discuss the details?");
-    window.open(`https://wa.me/919325808063?text=${message}`, '_blank');
+    const message = encodeURIComponent(
+      "Hi CodeFlux! I'm interested in organizing a workshop at our institution. Can we discuss the details?"
+    );
+    window.open(`https://wa.me/919325808063?text=${message}`, "_blank");
+  };
+
+  // Alternative method: Send directly via WhatsApp with form data
+  const sendViaWhatsApp = () => {
+    const whatsappMessage = `Hi CodeFlux! Workshop Request Details:
+    
+Name: ${formData.name}
+Email: ${formData.email}
+School: ${formData.school}
+Phone: ${formData.phone}
+Workshop Type: ${formData.workshopType || "Not specified"}
+
+Message: ${formData.message}
+
+Please get back to me with the workshop details and scheduling options.`;
+
+    const whatsappLink = `https://wa.me/919325808063?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+    window.open(whatsappLink, "_blank");
+
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      school: "",
+      phone: "",
+      message: "",
+      workshopType: "",
+    });
+
+    toast({
+      title: "Sent via WhatsApp! 💬",
+      description:
+        "Your workshop request has been sent. We'll respond shortly!",
+    });
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20"
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-codeflux bg-clip-text text-transparent">
             Let's Start Something Amazing
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ready to bring cutting-edge technology education to your institution? 
-            We're excited to work with you across Maharashtra and create an unforgettable learning experience!
+            Ready to bring cutting-edge technology education to your
+            institution? We're excited to work with you across Maharashtra and
+            create an unforgettable learning experience!
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <Card className="p-8 bg-white dark:bg-gray-800 shadow-xl animate-on-scroll">
-            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Book Your Workshop 📝</h3>
+            <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+              Book Your Workshop 📝
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
@@ -141,7 +284,9 @@ const Contact = () => {
                   <option value="ai-tools">AI Tools for Students</option>
                   <option value="python">Python Programming</option>
                   <option value="web-dev">Web Development</option>
-                  <option value="video-creation">Video Creation & Editing</option>
+                  <option value="video-creation">
+                    Video Creation & Editing
+                  </option>
                   <option value="ui-ux-design">UI/UX Design</option>
                   <option value="ai-teachers">AI for Teachers</option>
                   <option value="robotics">Robotics & Arduino</option>
@@ -165,12 +310,24 @@ const Contact = () => {
                 />
               </div>
 
-              <Button 
-                type="submit"
-                className="w-full bg-gradient-codeflux text-white py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-lg"
-              >
-                Send Message 🚀
-              </Button>
+              {/* Two button options */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-codeflux text-white py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-lg"
+                >
+                  {isSubmitting ? "Sending..." : "Send via Email 📧"}
+                </Button>
+
+                <Button
+                  type="button"
+                  onClick={sendViaWhatsApp}
+                  className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-lg"
+                >
+                  Send via WhatsApp 💬
+                </Button>
+              </div>
             </form>
           </Card>
 
@@ -182,12 +339,14 @@ const Contact = () => {
                 <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <span className="text-3xl text-white">💬</span>
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">Quick Connect on WhatsApp</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
+                  Quick Connect on WhatsApp
+                </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  Need immediate assistance or have urgent questions? 
-                  Reach out to us directly on WhatsApp!
+                  Need immediate assistance or have urgent questions? Reach out
+                  to us directly on WhatsApp!
                 </p>
-                <Button 
+                <Button
                   onClick={openWhatsApp}
                   className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300"
                 >
@@ -198,45 +357,71 @@ const Contact = () => {
 
             {/* Contact Details */}
             <Card className="p-8 bg-white dark:bg-gray-800 shadow-xl">
-              <h3 className="text-xl font-bold mb-6 text-gray-800 dark:text-white">Get in Touch</h3>
+              <h3 className="text-xl font-bold mb-6 text-gray-800 dark:text-white">
+                Get in Touch
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center">
-                    <span className="text-purple-600 dark:text-purple-400">📧</span>
+                    <span className="text-purple-600 dark:text-purple-400">
+                      📧
+                    </span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800 dark:text-white">Email</p>
-                    <p className="text-gray-600 dark:text-gray-300">codefluxhelp@gmail.com</p>
+                    <p className="font-semibold text-gray-800 dark:text-white">
+                      Email
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      codefluxhelp@gmail.com
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center">
-                    <span className="text-purple-600 dark:text-purple-400">📱</span>
+                    <span className="text-purple-600 dark:text-purple-400">
+                      📱
+                    </span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800 dark:text-white">WhatsApp</p>
-                    <p className="text-gray-600 dark:text-gray-300">+91 9325808063</p>
+                    <p className="font-semibold text-gray-800 dark:text-white">
+                      WhatsApp
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      +91 9325808063
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center">
-                    <span className="text-purple-600 dark:text-purple-400">📍</span>
+                    <span className="text-purple-600 dark:text-purple-400">
+                      📍
+                    </span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800 dark:text-white">Coverage Area</p>
-                    <p className="text-gray-600 dark:text-gray-300">All across Maharashtra</p>
+                    <p className="font-semibold text-gray-800 dark:text-white">
+                      Coverage Area
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      All across Maharashtra
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center">
-                    <span className="text-purple-600 dark:text-purple-400">⏰</span>
+                    <span className="text-purple-600 dark:text-purple-400">
+                      ⏰
+                    </span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800 dark:text-white">Response Time</p>
-                    <p className="text-gray-600 dark:text-gray-300">Within 24 hours</p>
+                    <p className="font-semibold text-gray-800 dark:text-white">
+                      Response Time
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      Within 24 hours
+                    </p>
                   </div>
                 </div>
               </div>
@@ -244,7 +429,9 @@ const Contact = () => {
 
             {/* Coverage Areas */}
             <Card className="p-8 bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border-0 shadow-xl">
-              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white text-center">🏛️ We Serve Across Maharashtra</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white text-center">
+                🏛️ We Serve Across Maharashtra
+              </h3>
               <div className="grid grid-cols-2 gap-2 text-sm text-gray-700 dark:text-gray-300">
                 <div className="text-center">Mumbai</div>
                 <div className="text-center">Pune</div>
@@ -262,28 +449,30 @@ const Contact = () => {
 
             {/* Social Links */}
             <Card className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-0 shadow-xl">
-              <h3 className="text-xl font-bold mb-6 text-gray-800 dark:text-white text-center">Follow Our Journey</h3>
+              <h3 className="text-xl font-bold mb-6 text-gray-800 dark:text-white text-center">
+                Follow Our Journey
+              </h3>
               <div className="flex justify-center space-x-4">
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
                 >
                   📘
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition-colors"
                 >
                   📷
                 </a>
-                <a 
-                  href="#" 
-                  className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors"
+                <a
+                  href="#"
+                  className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
                 >
                   🐦
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white hover:bg-red-600 transition-colors"
                 >
                   📺
