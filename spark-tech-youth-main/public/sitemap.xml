@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-
-<url>
-  <loc>https://codeflux-bcnb.onrender.com/</loc>
-  <lastmod>2025-09-28T04:46:10+00:00</lastmod>
-</url>
-
+  <url>
+    <loc>https://codeflux-bcnb.onrender.com/</loc>
+    <lastmod>2025-11-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://codeflux-bcnb.onrender.com/lovable-uploads/9f8ba864-aa13-4e8f-91fd-441bd6b5cd37.png</image:loc>
+      <image:title>CodeFlux Logo</image:title>
+      <image:caption>CodeFlux — AI Workshops, Coding Bootcamps, Robotics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lovable.dev/opengraph-image-p98pqg.png</image:loc>
+      <image:title>CodeFlux OpenGraph</image:title>
+      <image:caption>AI workshops for colleges and schools, robotics programs, coding bootcamps</image:caption>
+    </image:image>
+  </url>
 
 </urlset>

@@ -11,38 +11,38 @@ const Gallery = () => {
       src: "https://i.postimg.cc/wBtpPxZL/Whats-App-Image-2025-07-02-at-23-30-17.jpg",
       title: "AI Workshop at Anjuman College",
       description:
-        "Non-Teaching exploring ChatGPT and AI video generation tools",
+        "Non-teaching staff explored ChatGPT and AI video generation tools.",
     },
     {
       src: "https://i.postimg.cc/cHRwRWxG/Whats-App-Image-2025-07-02-at-23-39-38.jpg",
-      title: "AI for productivity boost for teacher",
+      title: "AI for Teacher Productivity",
       description:
-        "Teaching school/universities teachers the best use of ai and how to make thier teaching more funn for students.",
+        "School and university teachers learned best practices to make classes more engaging with AI.",
     },
     {
       src: "https://i.postimg.cc/cLGKcjzs/Whats-App-Image-2025-07-02-at-23-39-38-1.jpg",
       title:
-        "Masterclass for teachers with the absolute use of AI all over India  ",
+        "AI Masterclass for Teachers",
       description:
-        "Teachers understanding the Fun of ai and how to make it benifical for students",
+        "Teachers discovered practical and fun AI use cases to benefit students across India.",
     },
     {
       src: "https://i.postimg.cc/pdhLbJ40/Whats-App-Image-2025-07-02-at-23-42-14.jpg",
-      title: "Students Creating their first portfolio website.",
+      title: "Students Building Their First Portfolio",
       description:
-        "Engineering students making thier  first portfoio website using AI and coding with us",
+        "Engineering students created their first portfolio websites using AI and coding guidance.",
     },
     {
       src: "https://i.postimg.cc/rmGcMnJ9/Whats-App-Image-2025-07-02-at-23-42-13.jpg",
-      title: "ITaking the challenge up to deploy thier projects",
+      title: "Deploying First Projects",
       description:
-        "Students understanding the website and uploading on github with codeflux ",
+        "Students learned GitHub workflows and deployed their projects with CodeFlux support.",
     },
     {
       src: "https://i.postimg.cc/3NSwQf8c/Whats-App-Image-2025-07-02-at-23-42-13-1.jpg",
-      title: "Workshop of Ai webcraft jam",
+      title: "AI Webcraft Jam Workshop",
       description:
-        "From understanding Ai and its origin to implementing ai on coding, went for all with codeflux.",
+        "From AI fundamentals to applying AI in coding—students experienced it all with CodeFlux.",
     },
   ];
 
@@ -74,6 +74,9 @@ const Gallery = () => {
               <img
                 src={images[currentIndex].src}
                 alt={images[currentIndex].title}
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 800px"
                 className="w-full h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
@@ -135,6 +138,9 @@ const Gallery = () => {
               <img
                 src={image.src}
                 alt={image.title}
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 33vw, 200px"
                 className="w-full h-24 object-cover"
               />
               <div
@@ -163,7 +169,8 @@ const Gallery = () => {
                 const element = document.getElementById("contact");
                 if (element) element.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-gradient-primary text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 font-semibold"
+              aria-label="Book your workshop"
+              className="bg-gradient-primary text-white px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
             >
               Book Your Workshop 🎯
             </Button>

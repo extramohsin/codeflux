@@ -8,65 +8,76 @@ import {
 } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
 
+type Curriculum = Record<string, string[]>;
+type Workshop = {
+  title: string;
+  description: string;
+  image: string;
+  duration: string;
+  level: string;
+  Audience: string;
+  curriculum: Curriculum;
+};
+
 const Workshops = () => {
   const [openCurriculum, setOpenCurriculum] = useState<number | null>(null);
 
-  const workshops = [
+  const workshops: Workshop[] = [
     {
       title: "AI Tools for Daily Productivity 🤖",
       description:
-        "A beginner-friendly workshop where we teach how to use AI tools to make your daily work easier whether you're a student, teacher, or non-IT professional.",
+        "Beginner-friendly, hands-on session using AI to supercharge study, teaching, and work. Perfect for students, teachers, and non-IT professionals.",
       image:
         "https://i.postimg.cc/G2xrdTpT/Flux-Dev-Diverse-group-of-people-student-teacher-doctor-and-bu-1.jpg",
       duration: "1.5 hours",
       level: "Beginner",
-      Audience: "Everyone",
+      Audience: "Students • Teachers • Professionals",
       curriculum: {
-        students: [
-          "Basic AI concepts",
-          "ChatGPT for homework",
-          "AI image generation",
+        Students: [
+          "What AI can do",
+          "ChatGPT for homework and revision",
+          "Image generation basics",
           "Ethical AI usage",
         ],
-        "Office workers": [
-          "Advanced prompting",
-          "AI research tools",
-          "Code generation",
-          "AI in academics",
+        "Office Workers": [
+          "Advanced prompting for reports",
+          "Research and summarization tools",
+          "Email and document drafting",
+          "Presentation assistance",
         ],
-        Professors: [
-          "AI for lesson planning",
-          "Automated grading",
-          "Content creation",
-          "Student engagement tools",
+        Teachers: [
+          "Lesson planning with AI",
+          "Automated quiz/worksheet creation",
+          "Classroom engagement tools",
+          "Content creation workflows",
         ],
       },
     },
     {
-      title: "AI for school 🏫",
+      title: "AI for Schools 🏫",
       description:
-        "Designed specifically for school environments to introduce students and teachers to AI in a simple and fun way for greater productivity.",
+        "Engaging school AI workshop introducing students and teachers to practical AI tools for productivity and learning.",
       image:
         "https://i.postimg.cc/qRbbspbZ/Flux-Dev-School-classroom-with-students-using-laptops-and-inte-2.jpg",
       duration: "3 hours",
-      level: "Beginner to Intermediate",
-      Audience: "School Students, Teachers",
+      level: "Beginner–Intermediate",
+      Audience: "School Students • Teachers",
       curriculum: {
-        "Shool students": [
+        "Primary/Middle School": [
           "What is AI?",
-          "Find perfect explination videos",
-          "Ethical use of AI",
-          "Make your digital personality",
+          "Find the right explanation videos",
+          "Ethical AI usage",
+          "Create your digital persona",
         ],
-        "High school students": [
-          "What is AI?",
+        "High School": [
           "ChatGPT for homework help",
-          "Image generation fun",
-          "Make your digital avatar",
+          "Fun image generation",
+          "Build a simple digital avatar",
+          "Study planning with AI",
         ],
-        teachers: [
+        Teachers: [
           "Smart teaching with ChatGPT",
-          "Making worksheets & quizzes",
+          "Worksheets & quizzes automation",
           "Visual content creation",
           "Interactive classroom tools",
         ],
@@ -75,26 +86,26 @@ const Workshops = () => {
     {
       title: "AI for Medical Professionals 🏥",
       description:
-        "A workshop tailored to help doctors, nurses, and medical students use AI to improve productivity and documentation.",
+        "Tailored for doctors, nurses, and medical students to improve productivity, documentation, and learning with AI tools.",
       image:
         "https://i.postimg.cc/XJCLC95X/Lucid-Realism-Doctors-and-nurses-in-scrubs-using-AI-tools-on-a-0.jpg",
       duration: "1.5 hours",
       level: "Beginner",
-      Audience: "Medical Students, Doctors, Healthcare Staff",
+      Audience: "Medical Students • Doctors • Healthcare Staff",
       curriculum: {
-        "Medical students": [
+        "Medical Students": [
           "AI for research and study notes",
           "Case summaries using ChatGPT",
           "Diagram/image-based learning",
           "Ethical usage in medical AI",
         ],
-        "Teaching profesionals": [
-          "Making reports easily",
-          "Making infographics for understanding complex medical concepts",
-          "Making Educational videos",
-          "Planning assignments",
+        "Teaching Professionals": [
+          "Report creation and formatting",
+          "Infographics for complex concepts",
+          "Educational video workflows",
+          "Assignment planning with AI",
         ],
-        "Doctors & Staffs": [
+        "Doctors & Staff": [
           "Medical report summarization",
           "Time-saving content generation",
           "Email, form, and letter drafting",
@@ -105,132 +116,132 @@ const Workshops = () => {
     {
       title: "AI for Lawyers ⚖️",
       description:
-        "Helps law students and professionals automate drafting, research, and case summarization using AI tools.",
+        "Automate drafting, research, and case summarization using AI tools for law students and professionals.",
       image:
         "https://i.postimg.cc/WbbrRM4r/Flux-Dev-A-closeup-portrait-of-a-diverse-group-of-lawyers-with-3.jpg",
       duration: "3 hours",
-      level: "Beginner to Intermediate",
-      Audience: "Law Students, Lawyer",
+      level: "Beginner–Intermediate",
+      Audience: "Law Students • Lawyers",
       curriculum: {
         "Law Students": [
           "AI for case law research",
           "Note-making & summaries",
           "Legal document formatting",
-          " AI debate practice tools",
+          "Debate practice tools with AI",
         ],
         "Lawyers & Legal Assistants": [
           "Drafting contracts with AI",
-          " Automating legal notices",
-          "Email writing & report prep",
+          "Automating legal notices",
+          "Email writing & report preparation",
           "Court case summaries",
         ],
-        teachers: [
-          "Educational videos",
+        Teachers: [
+          "Educational video workflows",
           "Lecture recording",
           "Interactive content",
-          "Student engagement videos",
+          "Student engagement strategies",
         ],
       },
     },
     {
       title: "AI for Content Creators 🎥",
       description:
-        "Learn how to generate ideas, scripts, visuals, and social media content using powerful AI tools.",
+        "Generate ideas, scripts, visuals, and social media content faster with practical AI workflows.",
       image:
         "https://i.postimg.cc/XNxGgpgv/Flux-Dev-A-cinematic-portrait-photograph-of-Young-content-crea-0.jpg",
       duration: "1.5 hours",
       level: "Beginner",
-      Audience: "Creators, Influencers, Marketers",
+      Audience: "Creators • Influencers • Marketers",
       curriculum: {
-        "Social media manager ": [
-          "Caption, hook & script writing",
-          "Idea generation using ChatGPTy",
-          "Product Branding with Ai",
-          "Making AI avatar of product",
+        "Social Media Managers": [
+          "Captions, hooks, and script writing",
+          "Idea generation using ChatGPT",
+          "Product branding with AI",
+          "AI product avatars",
         ],
         Beginners: [
           "Idea generation using ChatGPT",
-          "Caption, hook & script writing",
+          "Captions, hooks, and scripts",
           "Canva AI for design",
-          " Voiceover tools with AI",
+          "Voiceover tools with AI",
         ],
         "Passion Creators": [
           "Educational materials design",
           "Video script automation",
           "Post scheduling using AI",
-          "Animated video creatioon with AI",
+          "Animated video creation with AI",
         ],
       },
     },
     {
       title: "Coding with AI Bootcamp 💻",
       description:
-        "A hands-on bootcamp to teach beginners how to code smarter using AI assistants and automation tools.",
+        "Hands-on bootcamp teaching beginners to code smarter with AI assistants and automation tools.",
       image:
         "https://i.postimg.cc/qMVJyrP7/Flux-Schnell-Students-coding-on-laptops-with-floating-lines-of-2.jpg",
       duration: "5 hours",
-      level: "Beginner-Advance",
-      Audience: "School/College Students, Non-Coders",
+      level: "Beginner–Advanced",
+      Audience: "School/College Students • Non-Coders",
       curriculum: {
         "School & College Students": [
           "Python basics with AI help",
           "ChatGPT for code generation",
-          "SMini project: TicTacToe game/shopping cart",
-          "Google Colab intro",
+          "Mini project: TicTacToe or shopping cart",
+          "Intro to Google Colab",
         ],
         "Non-IT Learners": [
-          "Non-IT Learners",
-          "Paper reviewing tools",
-          "AI for debugging code",
+          "Coding fundamentals with AI support",
+          "Paper review and summarization tools",
+          "AI for code debugging",
           "Using ChatGPT as a coding coach",
         ],
       },
     },
     {
-      title: " Soft Skills Training & AI Communication 🗣️",
+      title: "Soft Skills & AI Communication 🗣️",
       description:
-        "Improve your communication, confidence, and presentation skills with the help of AI tools and real-time feedback.",
+        "Improve communication, confidence, and presentation skills using AI tools and real-time feedback.",
       image:
         "https://i.postimg.cc/QxJ37Tg6/Flux-Schnell-animated-Person-practicing-a-presentation-with-AI-2.jpg",
       duration: "2 hours",
       level: "Beginner",
-      Audience: "Primary Students, High school students",
+      Audience: "Primary • High School Students",
       curriculum: {
         "Primary Students": [
-          "How to present yourself",
-          "Confident public speaking Games",
-          "Communication & team collaboration",
-          "Personal Idea Pitching",
+          "Present yourself with confidence",
+          "Public speaking games",
+          "Communication & collaboration",
+          "Personal idea pitching",
         ],
-        "High school students": [
-          "High school students",
-          "How to think as a businessman",
+        "High School Students": [
+          "Think like an entrepreneur",
           "Slide & pitch deck creation",
-          "How to improve your personality",
+          "Improve your personality",
+          "Peer feedback with AI",
         ],
       },
     },
     {
-      title: "  Career Launchpad With AI🚀",
+      title: "Career Launchpad with AI 🚀",
       description:
-        "A complete skill-building session combining AI, coding, resume making, and soft skills to launch your career the smart way.",
+        "Skill-building session combining AI, coding, resume creation, and soft skills to launch your career smartly.",
       image:
         "https://i.postimg.cc/dVVzTSV1/Flux-Schnell-animated-Young-professionals-preparing-resumes-an-0.jpg",
       duration: "2 hours",
-      level: "Beginner-Intermidate",
-      Audience: "University Students, Job Seekers",
+      level: "Beginner–Intermediate",
+      Audience: "University Students • Job Seekers",
       curriculum: {
         "University Students": [
-          "How to present yourself",
-          "Build resume & cover letter with AI",
-          "Communication & team collaboration",
-          "Finding Ideas for as the indusrty requirment",
+          "Present yourself effectively",
+          "Resume & cover letter with AI",
+          "Communication & collaboration",
+          "Idea discovery aligned to industry",
         ],
-        "Job seekers": [
-          "Build resume & cover letter with AI",
+        "Job Seekers": [
+          "Resume & cover letter with AI",
           "Automate job applications",
           "LinkedIn optimization using AI",
-          " Find jobs/internships using AI tools",
+          "Find jobs/internships using AI tools",
         ],
       },
     },
@@ -271,6 +282,8 @@ const Workshops = () => {
                 <img
                   src={workshop.image}
                   alt={workshop.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -278,6 +291,11 @@ const Workshops = () => {
                   <span className="text-sm font-semibold text-purple-600">
                     {workshop.level}
                   </span>
+                </div>
+                <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center text-[11px] font-medium px-2.5 py-1 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 text-gray-700 shadow-sm">Beginner-friendly</span>
+                  <span className="inline-flex items-center text-[11px] font-medium px-2.5 py-1 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 text-gray-700 shadow-sm">Hands-on</span>
+                  <span className="inline-flex items-center text-[11px] font-medium px-2.5 py-1 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 text-gray-700 shadow-sm">Real-world projects</span>
                 </div>
               </div>
 
@@ -319,53 +337,53 @@ const Workshops = () => {
                     </Button>
                   </CollapsibleTrigger>
                   <CollapsibleContent className="space-y-2">
-                    <div className="bg-blue-50 p-3 rounded-lg">
-                      <h5 className="font-medium text-blue-800 mb-1 text-sm">
-                        {Object.keys(workshop.curriculum)[0]}
-                      </h5>
-                      <ul className="text-xs text-blue-700 space-y-1">
-                        {Object.values(workshop.curriculum)[1].map(
-                          (item, idx) => (
-                            <li key={idx}>• {item}</li>
-                          )
-                        )}
-                      </ul>
-                    </div>
-
-                    <div className="bg-purple-50 p-3 rounded-lg">
-                      <h5 className="font-medium text-purple-800 mb-1 text-sm">
-                        {Object.keys(workshop.curriculum)[1]}
-                      </h5>
-                      <ul className="text-xs text-purple-700 space-y-1">
-                        {Object.values(workshop.curriculum)[1].map(
-                          (item, idx) => (
-                            <li key={idx}>• {item}</li>
-                          )
-                        )}
-                      </ul>
-                    </div>
-
-                    <div className="bg-green-50 p-3 rounded-lg">
-                      <h5 className="font-medium text-green-800 mb-1 text-sm">
-                        {Object.keys(workshop.curriculum)[2]}
-                      </h5>
-                      <ul className="text-xs text-green-700 space-y-1">
-                        {Object.values(workshop.curriculum)[1].map(
-                          (item, idx) => (
-                            <li key={idx}>• {item}</li>
-                          )
-                        )}
-                      </ul>
-                    </div>
+                    {Object.entries(workshop.curriculum).map(([group, items], idx) => (
+                      <div
+                        key={group}
+                        className={
+                          idx === 0
+                            ? "bg-blue-50 p-3 rounded-lg"
+                            : idx === 1
+                            ? "bg-purple-50 p-3 rounded-lg"
+                            : "bg-green-50 p-3 rounded-lg"
+                        }
+                      >
+                        <h5
+                          className={
+                            idx === 0
+                              ? "font-medium text-blue-800 mb-1 text-sm"
+                              : idx === 1
+                              ? "font-medium text-purple-800 mb-1 text-sm"
+                              : "font-medium text-green-800 mb-1 text-sm"
+                          }
+                        >
+                          {group}
+                        </h5>
+                        <ul
+                          className={
+                            idx === 0
+                              ? "text-xs text-blue-700 space-y-1"
+                              : idx === 1
+                              ? "text-xs text-purple-700 space-y-1"
+                              : "text-xs text-green-700 space-y-1"
+                          }
+                        >
+                          {items.map((item, i) => (
+                            <li key={i}>• {item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </CollapsibleContent>
                 </Collapsible>
 
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Button
                     onClick={scrollToContact}
-                    className="w-full bg-gradient-codeflux text-white hover:shadow-lg transition-all duration-300 text-sm"
+                    aria-label="Book a session"
+                    className="w-full bg-gradient-codeflux text-white hover:shadow-lg transition-all duration-300 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-purple-600"
                   >
-                    Book This Workshop 🚀
+                    Book a Session 🚀
                   </Button>
                 </div>
               </div>

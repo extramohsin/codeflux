@@ -14,6 +14,13 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
+  optimizeDeps: {
+    include: [
+      'zustand',
+      'use-sync-external-store',
+      'use-sync-external-store/shim/with-selector.js',
+    ],
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

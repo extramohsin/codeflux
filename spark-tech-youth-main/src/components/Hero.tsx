@@ -9,8 +9,10 @@ const Hero = () => {
     }
   };
 
+  
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 pt-24 md:pt-28 scroll-mt-24 md:scroll-mt-28">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -20,29 +22,35 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto animate-fade-in-up">
-          {/* Logo */}
-          <div className="flex items-center justify-center mb-8">
-            <div className="w-32 h-32 rounded-full overflow-hidden shadow-2xl animate-pulse-glow">
-              <img 
-                src="/lovable-uploads/9f8ba864-aa13-4e8f-91fd-441bd6b5cd37.png" 
-                alt="CodeFlux Logo" 
-                className="w-full h-full object-cover"
-              />
+          <div className="flex items-center justify-center mb-12">
+            <div className="relative w-32 h-32 z-10">
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-indigo-500/20 blur-xl" />
+              <div className="w-full h-full rounded-full overflow-hidden shadow-2xl ring-1 ring-gray-200/50 bg-white">
+                <img
+                  src="/lovable-uploads/9f8ba864-aa13-4e8f-91fd-441bd6b5cd37.png"
+                  alt="CodeFlux logo"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
 
           {/* Main Tagline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6 leading-tight">
-            Ignite the Spark of
+            Ignite Future-Ready Skills
             <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Innovation
+              with CodeFlux
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            A passionate youth-led initiative introducing school and college students to 
-            <span className="font-semibold text-blue-700"> AI tools, coding, robotics,</span> and real-world technology
+            A youth-led community delivering premium, hands-on workshops in
+            <span className="font-semibold text-blue-700"> AI tools, coding, robotics,</span> and innovation. Ideal for
+            <span className="font-semibold text-purple-700"> school AI workshops, college AI workshops,</span> and
+            <span className="font-semibold text-indigo-700"> coding bootcamps for students</span> across India.
           </p>
 
           {/* Tech Icons */}
@@ -63,29 +71,31 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button 
+            <Button
+              aria-label="Book a workshop"
               onClick={scrollToContact}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-blue-700 hover:to-purple-700 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-blue-700 hover:to-purple-700 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
             >
-              Invite Us to Your School 🎯
+              Book a Workshop 🎯
             </Button>
-            <Button 
+            <Button
+              aria-label="Learn with CodeFlux"
               onClick={scrollToContact}
               variant="outline"
-              className="border-2 border-blue-300 text-blue-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-all duration-300"
+              className="border-2 border-blue-300 text-blue-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
             >
-              Join Workshop ✨
+              Learn With Us ✨
             </Button>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-2xl mx-auto">
             <div className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-2xl shadow-lg">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">500+</div>
-              <div className="text-gray-600 text-sm">Students Inspired</div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">800+</div>
+              <div className="text-gray-600 text-sm">Students Taught</div>
             </div>
             <div className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-2xl shadow-lg">
-              <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-2">25+</div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mb-2">30+</div>
               <div className="text-gray-600 text-sm">Workshops Conducted</div>
             </div>
             <div className="text-center p-4 bg-white/50 backdrop-blur-sm rounded-2xl shadow-lg">

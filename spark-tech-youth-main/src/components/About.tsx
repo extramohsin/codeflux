@@ -9,9 +9,8 @@ const About = () => {
             About CodeFlux
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're a passionate group of young tech enthusiasts on a mission to
-            democratize technology education and inspire the next generation of
-            innovators.
+            We are a youth-led tech community delivering modern, performance-friendly workshops and bootcamps across Maharashtra. Our programs cover
+            AI tools, coding, robotics, and innovative tech so students and educators gain real, career-ready skills.
           </p>
         </div>
 
@@ -21,11 +20,11 @@ const About = () => {
               Our Mission
             </h3>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              At CodeFlux, we make technology easy and accessible for everyone —
-              whether you're a student, teacher, or working professional from a
-              non-IT background. Our mission is to simplify AI, coding, and
-              digital tools, helping you apply them in real life and stay ahead
-              in today’s tech-driven world.
+              We make technology accessible for everyone. Whether you are a student,
+              teacher, or a non-IT professional, CodeFlux simplifies AI, coding and
+              digital tools into practical, hands-on learning you can use immediately.
+              From school AI workshops to college AI workshops and coding bootcamps for students,
+              we focus on outcomes and confidence.
             </p>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
@@ -60,6 +59,8 @@ const About = () => {
               <img
                 src="https://i.postimg.cc/t4TxRx94/Whats-App-Image-2025-07-01-at-23-34-25.jpg"
                 alt="Students learning with technology"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 object-cover rounded-lg mb-6"
               />
               <blockquote className="text-lg text-gray-700 italic text-center">

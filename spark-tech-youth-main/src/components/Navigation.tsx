@@ -24,63 +24,77 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-blue-100' : 'bg-transparent'
+    <nav role="navigation" aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/80 backdrop-blur-xl border-b border-gray-200/60 shadow-md' : 'bg-white/60 backdrop-blur-xl border-b border-gray-200/40'
     }`}>
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="container mx-auto px-6 py-3">
+        <div className="flex items-center">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg ring-2 ring-blue-200">
+          <div className="flex items-center space-x-2">
+            <div className="w-9 h-9 rounded-full overflow-hidden ring-1 ring-gray-200">
               <img 
                 src="/lovable-uploads/9f8ba864-aa13-4e8f-91fd-441bd6b5cd37.png" 
                 alt="CodeFlux Logo" 
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               CodeFlux
             </span>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Home
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              About
-            </button>
-            <button 
-              onClick={() => scrollToSection('workshops')}
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Workshops
-            </button>
-            <button 
-              onClick={() => scrollToSection('gallery')}
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Gallery
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Contact
-            </button>
-            
+          <div className="hidden md:flex flex-1 items-center justify-center">
+            <div className="flex items-center gap-6">
+              <button 
+                onClick={() => scrollToSection('home')}
+                aria-label="Go to Home"
+                className="group relative text-gray-800 hover:text-black transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+              >
+                Home
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')}
+                aria-label="Go to About"
+                className="group relative text-gray-800 hover:text-black transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+              >
+                About
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
+              </button>
+              <button 
+                onClick={() => scrollToSection('workshops')}
+                aria-label="Go to Workshops"
+                className="group relative text-gray-800 hover:text-black transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+              >
+                Workshops
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
+              </button>
+              <button 
+                onClick={() => scrollToSection('gallery')}
+                aria-label="Go to Gallery"
+                className="group relative text-gray-800 hover:text-black transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+              >
+                Gallery
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                aria-label="Go to Contact"
+                className="group relative text-gray-800 hover:text-black transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+              >
+                Contact
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
+              </button>
+            </div>
+          </div>
+
+          <div className="hidden md:flex items-center gap-3">
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-gradient-codeflux text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300"
+              aria-label="Book a session"
+              className="bg-black text-white px-5 py-2 rounded-full hover:bg-gray-900 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black"
             >
-              Join Workshop
+              Book a Session
             </Button>
           </div>
 

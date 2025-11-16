@@ -79,51 +79,6 @@ const WhyCodeFlux = () => {
             </Card>
           ))}
         </div>
-
-        {/* Success Stories */}
-        <div className="grid md:grid-cols-2 gap-8 animate-on-scroll">
-          <Card className="p-8 bg-gradient-to-br from-purple-50 to-pink-50 border-0 shadow-xl">
-            <div className="flex items-center mb-6">
-              <img
-                src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=60&h=60&fit=crop&crop=face"
-                alt="Student testimonial"
-                className="w-12 h-12 rounded-full mr-4"
-              />
-              <div>
-                <p className="font-semibold text-gray-800">
-                  Shafeeque sir , primary teacher
-                </p>
-                <p className="text-sm text-gray-600">New English High School</p>
-              </div>
-            </div>
-            <blockquote className="text-gray-700 italic">
-              "CodeFlux taught me to use AI tools that saved me hours on my
-              project. Nice session for our future education to school
-              students."
-            </blockquote>
-          </Card>
-
-          <Card className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 border-0 shadow-xl">
-            <div className="flex items-center mb-6">
-              <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=60&h=60&fit=crop&crop=face"
-                alt="Teacher testimonial"
-                className="w-12 h-12 rounded-full mr-4"
-              />
-              <div>
-                <p className="font-semibold text-gray-800">Naina, 2nd year</p>
-                <p className="text-sm text-gray-600">
-                  Computer Science student
-                </p>
-              </div>
-            </div>
-            <blockquote className="text-gray-700 italic">
-              "We students were completely engaged throughout the workshop. The
-              practical approach and real-world applications made complex
-              concepts easy to understand. Highly recommended!"
-            </blockquote>
-          </Card>
-        </div>
       </div>
     </section>
   );

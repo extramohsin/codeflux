@@ -315,7 +315,8 @@ Please get back to me with the workshop details and scheduling options.`;
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-codeflux text-white py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-lg"
+                  aria-label="Send via email"
+                  className="w-full bg-gradient-codeflux text-white py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-purple-600"
                 >
                   {isSubmitting ? "Sending..." : "Send via Email 📧"}
                 </Button>
@@ -323,7 +324,8 @@ Please get back to me with the workshop details and scheduling options.`;
                 <Button
                   type="button"
                   onClick={sendViaWhatsApp}
-                  className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-lg"
+                  aria-label="Send via WhatsApp"
+                  className="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-600"
                 >
                   Send via WhatsApp 💬
                 </Button>
@@ -348,7 +350,8 @@ Please get back to me with the workshop details and scheduling options.`;
                 </p>
                 <Button
                   onClick={openWhatsApp}
-                  className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300"
+                  aria-label="Chat on WhatsApp"
+                  className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-600"
                 >
                   Chat on WhatsApp 📱
                 </Button>
@@ -454,28 +457,31 @@ Please get back to me with the workshop details and scheduling options.`;
               </h3>
               <div className="flex justify-center space-x-4">
                 <a
-                  href="#"
-                  className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
+                  href="https://www.instagram.com/codefluxofficial/?igsh=dXVpczl1emozcnhj#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit CodeFlux on Instagram"
+                  className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pink-600"
                 >
-                  📘
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram w-5 h-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                 </a>
                 <a
-                  href="#"
-                  className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition-colors"
+                  href="https://www.linkedin.com/in/codeflux-team/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit CodeFlux on LinkedIn"
+                  className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
                 >
-                  📷
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin w-5 h-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
                 <a
-                  href="#"
-                  className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
+                  href="https://www.youtube.com/@Codeflux998"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit CodeFlux on YouTube"
+                  className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white hover:bg-red-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-600"
                 >
-                  🐦
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white hover:bg-red-600 transition-colors"
-                >
-                  📺
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-youtube w-5 h-5"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
                 </a>
               </div>
             </Card>
