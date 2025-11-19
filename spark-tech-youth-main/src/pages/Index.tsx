@@ -1,5 +1,6 @@
 
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
@@ -35,15 +36,31 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>CodeFlux - AI Workshops, Robotics & Coding Bootcamps</title>
+        <meta name="description" content="CodeFlux offers top-tier AI workshops, robotics bootcamps, and coding courses for schools and colleges. Ignite the spark of innovation today." />
+        <link rel="canonical" href="https://codeflux-bcnb.onrender.com/" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="CodeFlux - AI Workshops, Robotics & Coding Bootcamps" />
+        <meta property="og:description" content="CodeFlux offers top-tier AI workshops, robotics bootcamps, and coding courses for schools and colleges. Ignite the spark of innovation today." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://codeflux-bcnb.onrender.com/" />
+      </Helmet>
+
       <Navigation />
-      <Hero />
-      <About />
-      <Workshops />
-      <WhyCodeFlux />
-      <Testimonials />
-      <Gallery />
-      <Contact />
+      
+      <main className="flex-grow">
+        <Hero />
+        <About />
+        <Workshops />
+        <WhyCodeFlux />
+        <Testimonials />
+        <Gallery />
+        <Contact />
+      </main>
+
       <Footer />
     </div>
   );

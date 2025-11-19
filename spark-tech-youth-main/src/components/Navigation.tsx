@@ -24,9 +24,10 @@ const Navigation = () => {
   };
 
   return (
-    <nav role="navigation" aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header role="banner" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/80 backdrop-blur-xl border-b border-gray-200/60 shadow-md' : 'bg-white/60 backdrop-blur-xl border-b border-gray-200/40'
     }`}>
+      <nav role="navigation" aria-label="Main navigation">
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center">
           {/* Logo */}
@@ -152,7 +153,8 @@ const Navigation = () => {
           </div>
         )}
       </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
