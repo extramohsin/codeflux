@@ -90,9 +90,8 @@
     "vite-ssg": "^28.2.2"
   },
   "reactSnap": {
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ]
+    "source": "dist",
+    "destination": "dist",
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   }
 }
