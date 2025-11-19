@@ -29,4 +29,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     target: 'es2015',
   },
+  ssr: {
+    noExternal: ['react-helmet-async'],
+  },
 }));

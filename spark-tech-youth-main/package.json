@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "postbuild": "react-snap",
+    "build": "npm run build:client && npm run build:server && npm run generate",
+    "build:client": "vite build --outDir dist",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "generate": "node prerender.js",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -87,11 +89,5 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"
-  },
-  "reactSnap": {
-    "source": "dist",
-    "destination": "dist",
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-    "delay": 1000
   }
 }
