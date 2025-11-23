@@ -38,12 +38,38 @@ const Hero = () => {
           </div>
 
           {/* Main Tagline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6 leading-tight">
-            Ignite Future-Ready Skills
-            <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              with CodeFlux
-            </span>
-          </h1>
+          <div className="relative">
+            {/* Background Logo - Animated and Modern */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+              {/* Gradient Overlay Behind Logo */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 via-purple-400/5 to-indigo-400/5 animate-pulse" />
+              
+              {/* Animated Logo */}
+              <div className="relative animate-float">
+                <img
+                  src="/codeflux-logo-bg.png"
+                  alt=""
+                  className="w-full max-w-4xl opacity-15 select-none drop-shadow-2xl"
+                  style={{
+                    filter: 'blur(0.5px) brightness(1.1)',
+                    animation: 'float 6s ease-in-out infinite, pulse 4s ease-in-out infinite'
+                  }}
+                  aria-hidden="true"
+                />
+                
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-indigo-500/10 blur-3xl animate-pulse" />
+              </div>
+            </div>
+            
+            {/* Text Content */}
+            <h1 className="relative text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6 leading-tight">
+              Ignite Future-Ready Skills
+              <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                with CodeFlux
+              </span>
+            </h1>
+          </div>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
