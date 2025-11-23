@@ -36,7 +36,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50">
       <Helmet>
         <title>CodeFlux - AI Workshops, Robotics & Coding Bootcamps</title>
         <meta name="description" content="CodeFlux offers top-tier AI workshops, robotics bootcamps, and coding courses for schools and colleges. Ignite the spark of innovation today." />
@@ -49,9 +49,34 @@ const Index = () => {
         <meta property="og:url" content="https://codeflux-bcnb.onrender.com/" />
       </Helmet>
 
+      {/* Global Animated Background - Fixed across entire site */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Large floating orb - top right */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-500/30 via-purple-500/25 to-indigo-500/20 rounded-full blur-3xl animate-float-slow"></div>
+        
+        {/* Large floating orb - bottom left */}
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-purple-500/30 via-pink-500/25 to-blue-500/20 rounded-full blur-3xl animate-float-reverse"></div>
+        
+        {/* Medium orb - top left */}
+        <div className="absolute top-20 -left-20 w-72 h-72 bg-gradient-to-br from-indigo-400/25 to-blue-400/20 rounded-full blur-2xl animate-float-medium"></div>
+        
+        {/* Medium orb - bottom right */}
+        <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-gradient-to-br from-pink-400/25 to-purple-400/20 rounded-full blur-2xl animate-float-slow"></div>
+        
+        {/* Center large glow */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-blue-300/15 via-purple-300/10 to-indigo-300/15 rounded-full blur-3xl animate-pulse-slow"></div>
+        
+        {/* Small accent orbs */}
+        <div className="absolute top-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-400/30 to-blue-400/20 rounded-full blur-2xl animate-float-fast"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-48 h-48 bg-gradient-to-br from-purple-400/25 to-indigo-400/20 rounded-full blur-2xl animate-float-medium"></div>
+        
+        {/* Subtle moving gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50 animate-gradient-shift"></div>
+      </div>
+
       <Navigation />
       
-      <main className="flex-grow">
+      <main className="flex-grow relative z-10">
         <Hero />
         <About />
         <Workshops />
