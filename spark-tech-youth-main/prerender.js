@@ -10,8 +10,8 @@ const { render } = await import('file:///' + toAbsolute('dist/server/entry-serve
 
 // Determine routes to prerender
 const routesToPrerender = fs.readdirSync(toAbsolute('src/pages')).map((file) => {
-  const name = file.replace(/\.tsx$/, '').toLowerCase()
-  return name === 'index' ? '/' : `/${name}`
+  const name = file.replace(/\.tsx$/, '')
+  return name === 'Index' ? '/' : `/${name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()}`
 })
 
 ;(async () => {
