@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 
@@ -86,6 +87,13 @@ const Navigation = () => {
                 Contact
                 <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
               </button>
+              <Link 
+                to="/teacher-registration"
+                className="group relative text-gray-800 hover:text-black transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+              >
+                Teacher Registration
+                <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full" />
+              </Link>
             </div>
           </div>
 
@@ -142,6 +150,13 @@ const Navigation = () => {
               >
                 Contact
               </button>
+              <Link 
+                to="/teacher-registration"
+                className="text-left py-2 text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Teacher Registration
+              </Link>
               
               <Button 
                 onClick={() => scrollToSection('contact')}
