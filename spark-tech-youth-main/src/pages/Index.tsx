@@ -38,13 +38,13 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50">
       <Helmet>
-        <title>CodeFlux - AI Workshops, Robotics & Coding Bootcamps</title>
-        <meta name="description" content="CodeFlux offers top-tier AI workshops, robotics bootcamps, and coding courses for schools and colleges. Ignite the spark of innovation today." />
+        <title>CodeFlux - India's Premier AI Workshops & Robotics Education</title>
+        <meta name="description" content="CodeFlux delivers top-tier AI workshops, robotics bootcamps, and coding courses for schools and colleges across India. Ignite the spark of innovation today." />
         <link rel="canonical" href="https://codeflux-bcnb.onrender.com/" />
         
         {/* Open Graph Tags */}
-        <meta property="og:title" content="CodeFlux - AI Workshops, Robotics & Coding Bootcamps" />
-        <meta property="og:description" content="CodeFlux offers top-tier AI workshops, robotics bootcamps, and coding courses for schools and colleges. Ignite the spark of innovation today." />
+        <meta property="og:title" content="CodeFlux - India's Premier AI & Robotics Education" />
+        <meta property="og:description" content="CodeFlux delivers top-tier AI workshops, robotics bootcamps, and coding courses for schools and colleges across India. Ignite the spark of innovation today." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://codeflux-bcnb.onrender.com/" />
       </Helmet>
