@@ -48,6 +48,32 @@ const Index = () => {
         <meta property="og:description" content="CodeFlux is India's best AI startup for non-tech professionals. We provide physical, on-ground AI training for Doctors, Lawyers, and Teachers. Learn smart AI use in Nagpur." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://codeflux.social/" />
+        
+        {/* Schema Markup */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              "name": "CodeFlux",
+              "alternateName": ["CodeFlux Nagpur", "Code Flux"],
+              "url": "https://codeflux.social",
+              "logo": "https://codeflux.social/logo.png",
+              "description": "Practical AI workshops for Doctors, Teachers, and Professionals in Nagpur.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Nagpur",
+                "addressRegion": "Maharashtra",
+                "addressCountry": "IN"
+              },
+              "sameAs": [
+                "https://www.instagram.com/codefluxofficial"
+              ],
+              "priceRange": "₹₹",
+              "knowsAbout": ["Artificial Intelligence", "Robotics", "Prompt Engineering"]
+            }
+          `}
+        </script>
       </Helmet>
 
       {/* Global Animated Background - Fixed across entire site */}
