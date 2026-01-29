@@ -57,7 +57,7 @@ const Hero = () => {
             
             {/* Text Content */}
             <h1 className="relative text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 mb-6 leading-tight">
-              Ignite Future-Ready Skills
+              Ignite AI for Professionals
               <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 with CodeFlux
               </span>

@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://codeflux-bcnb.onrender.com/sitemap.xml
+Sitemap: https://codeflux.social/sitemap.xml

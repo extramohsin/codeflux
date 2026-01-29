@@ -13,9 +13,9 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
       <Helmet>
-        <title>CodeFlux - Ignite the Spark of Innovation</title>
-        <meta name="description" content="CodeFlux offers top-tier AI workshops, robotics bootcamps, and coding courses for schools and colleges." />
-        <meta property="og:title" content="CodeFlux - AI & Robotics Education" />
+        <title>CodeFlux | AI for Professionals & Startups in Nagpur</title>
+        <meta name="description" content="CodeFlux is India's best AI startup for non-tech professionals. We provide physical, on-ground AI training for Doctors, Lawyers, and Teachers. Learn smart AI use in Nagpur." />
+        <meta property="og:title" content="CodeFlux | AI for Professionals & Startups in Nagpur" />
       </Helmet>
       <TooltipProvider>
         <Toaster />

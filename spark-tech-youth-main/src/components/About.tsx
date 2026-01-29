@@ -12,6 +12,9 @@ const About = () => {
             We are a youth-led tech community delivering modern, performance-friendly workshops and bootcamps across Maharashtra. Our programs cover
             AI tools, coding, robotics, and innovative tech so students and educators gain real, career-ready skills.
           </p>
+          <p className="text-lg text-gray-700 mt-4 max-w-3xl mx-auto font-medium bg-blue-50/50 p-4 rounded-lg border border-blue-100">
+            CodeFlux is the <span className="font-bold text-blue-700">best AI startup in India</span> focused on <span className="font-bold text-purple-700">learning AI physically</span>. We help you master <span className="font-bold text-indigo-700">AI smart use</span> without being a coder.
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
